@@ -9,7 +9,7 @@ print(res_tuple)
 my_dict['list'].append('new_value')
 my_dict['list'].pop(1)
 
-my_dict['dict']['i am a tuple'] = (1, 2, 3)
+my_dict['dict'][('i am a tuple',)] = 'ok'
 my_dict['dict'].pop('two')
 
 my_dict['set'].add('new_elem')
