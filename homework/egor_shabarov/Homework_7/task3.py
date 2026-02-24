@@ -4,7 +4,7 @@ result_3 = 'результат работы программы: 209'
 result_4 = 'результат: 2'
 
 
-def my_func(result_program: str):
+def my_func(result_program):
     print(int(result_program.split(': ')[1]) + 10)
 
 
