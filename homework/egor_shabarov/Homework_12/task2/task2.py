@@ -12,23 +12,23 @@ class BankTerminal:
 
     def get_report(self):
         self.balance -= 50
-        self.history.append(f'-50 руб.: списание за выписку по карте')
+        self.history.append('-50 руб.: списание за выписку по карте')
         print(f'Ваш баланс: {self.balance}')
         print('История операций:')
         print('\n'.join(self.history))
 
     def take_loan(self, amount):
-        self.balance += amount*0.8
+        self.balance += amount * 0.8
         self.history.append(f'+{amount} руб.: пополнение за счет кредитных средств')
-        self.history.append(f'-{amount*0.2} руб.: списание по кредиту')
+        self.history.append(f'-{amount * 0.2} руб.: списание по кредиту')
         print('Ваш счет пополнен кредитными средствами')
 
     def transfer(self, other_account, amount):
-        if self.balance >= amount*1.05:
-            self.balance -= amount*1.05
-            self.history.append(f'-{amount*1.05} руб.: перевод денежных средств другому лицу')
+        if self.balance >= amount * 1.05:
+            self.balance -= amount * 1.05
+            self.history.append(f'-{amount * 1.05} руб.: перевод денежных средств другому лицу')
             other_account.add_money(amount)
-            print(f'Перевод успешно выполнен, комиссия составила {amount*0.05} руб')
+            print(f'Перевод успешно выполнен, комиссия составила {amount * 0.05} руб')
         else:
             print('Операция не выполнена, не хватает денежных средств')
 
