@@ -1,9 +1,9 @@
 # Создайте студента (student)
-INSERT INTO students (name, second_name, group_id) VALUES ('Игорь', 'Ветров', 1)
+INSERT INTO students (name, second_name) VALUES ('Игорь', 'Ветров')
 
 # Создайте несколько книг (books) и укажите, что ваш созданный студент взял их
-INSERT INTO book (title, taken_by_student_id) VALUES ('Алые паруса', 22394)
-INSERT INTO book (title, taken_by_student_id) VALUES ('SQL для чайников', 22394)
+INSERT INTO books (title, taken_by_student_id) VALUES ('Алые паруса', 22394)
+INSERT INTO books (title, taken_by_student_id) VALUES ('SQL для чайников', 22394)
 
 # Создайте группу (group) и определите своего студента туда
 INSERT INTO groups (title, start_date, end_date) VALUES ('GS_group', 'февраль2026', 'апрель2026');
