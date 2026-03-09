@@ -27,15 +27,16 @@ print("Успешное подключение к базе данных!")
 cursor = db.cursor()
 
 for line in csv_content:
-    query = """SELECT s.name  FROM students s 
-    JOIN `groups` g ON s.group_id = g.id 
-    JOIN books b ON s.id = b.taken_by_student_id 
-    JOIN marks m ON s.id = m.student_id 
-    JOIN lessons l ON m.lesson_id = l.id 
-    JOIN subjects sub ON l.subject_id = sub.id 
-    WHERE s.name = %s AND s.second_name = %s AND g.title = %s AND b.title = %s AND sub.title = %s 
-    AND l.title = %s AND m.value = %s
-    """
+    query = """
+SELECT s.name  FROM students s
+JOIN `groups` g ON s.group_id = g.id
+JOIN books b ON s.id = b.taken_by_student_id
+JOIN marks m ON s.id = m.student_id
+JOIN lessons l ON m.lesson_id = l.id
+JOIN subjects sub ON l.subject_id = sub.id
+WHERE s.name = %s AND s.second_name = %s AND g.title = %s AND b.title = %s AND sub.title = %s
+AND l.title = %s AND m.value = %s
+"""
     value = (line['name'], line['second_name'], line['group_title'], line['book_title'], line['subject_title'],
              line['lesson_title'], line['mark_value'])
 

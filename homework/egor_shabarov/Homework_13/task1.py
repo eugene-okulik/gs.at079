@@ -7,7 +7,6 @@ path_homework = os.path.dirname(os.path.dirname(current_dir))
 file_path = os.path.join(path_homework, 'eugene_okulik', 'hw_13', 'data.txt')
 
 
-
 def file_open(path_file):
     """
     Открывает файл и читает все строки
@@ -51,3 +50,4 @@ for line in file_open(file_path):
         date_obj = parser_date(date_str)
         result = datetime.datetime.now() - date_obj
         print(f'Прошло дней {result.days}')
+
