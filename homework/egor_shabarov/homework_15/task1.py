@@ -11,8 +11,8 @@ print("Успешное подключение к базе данных!")
 
 cursor = db.cursor(dictionary=True)
 
-insert_query_1 = 'INSERT INTO students (name, second_name, group_id) VALUES (%s, %s, %s)'
-values_1 = ('Игорь', 'Ветров', 1)
+insert_query_1 = 'INSERT INTO students (name, second_name) VALUES (%s, %s, %s)'
+values_1 = ('Игорь', 'Ветров')
 cursor.execute(insert_query_1, values_1)
 student_id = cursor.lastrowid
 
