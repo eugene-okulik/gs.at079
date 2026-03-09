@@ -50,4 +50,3 @@ for line in file_open(file_path):
         date_obj = parser_date(date_str)
         result = datetime.datetime.now() - date_obj
         print(f'Прошло дней {result.days}')
-
