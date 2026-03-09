@@ -3,8 +3,9 @@ import datetime
 
 current_dir = os.path.dirname(__file__)
 path_homework = os.path.dirname(os.path.dirname(current_dir))
-file_path = path_homework + '/eugene_okulik/hw_13/data.txt'
-# file_path = path_homework + '/egor_shabarov/Homework_13/data.txt'
+# file_path = path_homework + '/eugene_okulik/hw_13/data.txt'
+file_path = os.path.join(path_homework, 'eugene_okulik', 'hw_13', 'data.txt')
+
 
 
 def file_open(path_file):
