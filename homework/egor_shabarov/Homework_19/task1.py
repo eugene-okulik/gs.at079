@@ -18,7 +18,6 @@ def get_one_object(id):
     assert response.json()['name'] == 'First object'
 
 
-
 def post_object(name):
     body = {
         'name': name,
