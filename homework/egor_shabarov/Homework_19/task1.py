@@ -37,9 +37,9 @@ def put_object(id, new_name, new_color, new_size):
     body = {
         'name': new_name,
         'data': {
-                'color': new_color,
-                'size': new_size
-            }
+            'color': new_color,
+            'size': new_size
+        }
     }
     response = requests.put(f'{BASE_URL}/object/{id}', json=body)
     print(response.json())
