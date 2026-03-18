@@ -2,6 +2,11 @@ import pytest
 import allure
 
 
+@pytest.fixture()
+def setup():
+    pass
+
+
 @allure.feature('ficha_1')
 @allure.story('story_1')
 @allure.title('Тест функциональности №1')
@@ -17,6 +22,7 @@ def test_1_1():
 def test_2_1():
     with allure.step('Шаг 1: Подготовка тестовых данных'):
         a = 23423
+        a += 1
     with allure.step('Шаг 2 Проверка ответа'):
         assert 2 == 5
 
