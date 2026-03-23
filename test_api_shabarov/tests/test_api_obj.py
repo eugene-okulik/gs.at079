@@ -6,7 +6,7 @@ create_data = [
     {'name': 'name 1', 'data': {'color': 'red', 'size': 'big'}},
     {'name': 'name 2', 'data': {'color': 'red', 'size': 'big'}},
     {'name': 'name 3', 'data': {'color': 'red', 'size': 'big'}}
-    ]
+]
 
 put_data = [('new_name', 'new_color', 'new_size')]
 
@@ -53,4 +53,3 @@ def test_delete_obj(delete_object_endpoint, create_obj_id):
     delete_object_endpoint.delete_object(create_obj_id)
     delete_object_endpoint.check_status_200()
     delete_object_endpoint.check_text_after_del(create_obj_id)
-
