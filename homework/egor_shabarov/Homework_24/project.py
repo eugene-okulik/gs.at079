@@ -1,4 +1,5 @@
-https://github.com/George-GS/API_project_gs
+# ссылка на проект
+# https://github.com/George-GS/API_project_gs
 
 # содержимое файла env.
 # TOKEN='x0KXQUmXyZ9DuE4'
