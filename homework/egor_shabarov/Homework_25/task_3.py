@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 def driver():
     options = Options()
     options.add_argument('start-maximized')
-    driver : WebDriver = webdriver.Chrome(options=options)
+    driver: WebDriver = webdriver.Chrome(options=options)
     yield driver
 
 
