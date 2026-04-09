@@ -1,6 +1,6 @@
 import json
 
-from playwright.sync_api import Page, expect, Request, Route, Response
+from playwright.sync_api import Page, expect, Route
 
 import re
 from time import sleep
