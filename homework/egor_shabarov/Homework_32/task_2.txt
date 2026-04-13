@@ -1,9 +1,0 @@
-/dev/null       Символьное устройство
-/dev/zero       Символьное устройство
-/dev/sda        cannot stat 'sda': No such file or directory
-/dev/tty        Символьное устройство
-/root           Директория
-/etc/passwd     Обычный файл
-/proc/mounts    Символическая ссылка
-/bin/ls         Обычный файл
-/bin/zcat       Обычный файл
