@@ -1,0 +1,77 @@
+Run all tests:
+    when: manual
+    image: python:3.10
+    artifacts:
+        when: always
+        expire_in: 10 days
+        paths:
+            - allure-report
+    before_script:
+        - echo "hello"
+        - pip install -r requirements.txt
+        - apt-get update && apt-get install -y gnupg wget unzip
+        - apt-get install -y libgbm1 libxkbcommon0 libnss3 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libxrandr2 libasound2 libatk-bridge2.0-0 libgtk-3-0
+        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-chrome.gpg
+        - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/stable main" > /etc/apt/sources.list.d/google-chrome.list'
+        - apt-get update && apt-get install -y google-chrome-stable
+        - apt update && apt install -y openjdk-17-jdk openjdk-17-jre
+        - wget https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz && tar -zxvf allure-2.24.1.tgz -C /opt/ && ln -s /opt/allure-2.24.1/bin/allure /usr/bin/allure
+    script:
+        - pytest --alluredir=allure-results
+    after_script:
+    - rm -f /etc/apt/sources.list.d/google-chrome.list
+    - apt-get update
+    - apt-get install -y openjdk-21-jre
+    - allure generate -c allure-results -o allure-report
+
+Run smoke tests:
+    when: manual
+    image: python:3.10
+    artifacts:
+        when: always
+        expire_in: 10 days
+        paths:
+            - allure-report
+    before_script:
+        - echo "hello"
+        - pip install -r requirements.txt
+        - apt-get update && apt-get install -y gnupg wget unzip
+        - apt-get install -y libgbm1 libxkbcommon0 libnss3 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libxrandr2 libasound2 libatk-bridge2.0-0 libgtk-3-0
+        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-chrome.gpg
+        - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/stable main" > /etc/apt/sources.list.d/google-chrome.list'
+        - apt-get update && apt-get install -y google-chrome-stable
+        - apt update && apt install -y openjdk-17-jdk openjdk-17-jre
+        - wget https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz && tar -zxvf allure-2.24.1.tgz -C /opt/ && ln -s /opt/allure-2.24.1/bin/allure /usr/bin/allure
+    script:
+        - pytest -m smoke --alluredir=allure-results
+    after_script:
+    - rm -f /etc/apt/sources.list.d/google-chrome.list
+    - apt-get update
+    - apt-get install -y openjdk-21-jre
+    - allure generate -c allure-results -o allure-report
+
+Run regression tests:
+    when: manual
+    image: python:3.10
+    artifacts:
+        when: always
+        expire_in: 10 days
+        paths:
+            - allure-report
+    before_script:
+        - echo "hello"
+        - pip install -r requirements.txt
+        - apt-get update && apt-get install -y gnupg wget unzip
+        - apt-get install -y libgbm1 libxkbcommon0 libnss3 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libxrandr2 libasound2 libatk-bridge2.0-0 libgtk-3-0
+        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-chrome.gpg
+        - sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/stable main" > /etc/apt/sources.list.d/google-chrome.list'
+        - apt-get update && apt-get install -y google-chrome-stable
+        - apt update && apt install -y openjdk-17-jdk openjdk-17-jre
+        - wget https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz && tar -zxvf allure-2.24.1.tgz -C /opt/ && ln -s /opt/allure-2.24.1/bin/allure /usr/bin/allure
+    script:
+        - pytest -m regression --alluredir=allure-results
+    after_script:
+    - rm -f /etc/apt/sources.list.d/google-chrome.list
+    - apt-get update
+    - apt-get install -y openjdk-21-jre
+    - allure generate -c allure-results -o allure-report
